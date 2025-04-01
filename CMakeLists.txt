@@ -3,5 +3,6 @@ project(LitCode)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_subdirectory(arrays)
+add_subdirectory(array)
+add_subdirectory(linked_list)
 
