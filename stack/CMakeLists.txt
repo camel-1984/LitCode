@@ -1,1 +1,3 @@
-add_executable(stack Number_of_Recent_Calls.cpp)
+add_executable(number_of_recent_calls Number_of_Recent_Calls.cpp)
+add_executable(valid_parentheses valid_parentheses.cpp)
+add_executable(queue_with_stacks queue_with_stacks.cpp)

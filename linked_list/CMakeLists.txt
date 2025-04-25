@@ -1,2 +1,2 @@
-add_executable(linked_list reverse_single_linked_list.cpp)
+add_executable(reverse_single_linked_list reverse_single_linked_list.cpp)
 
