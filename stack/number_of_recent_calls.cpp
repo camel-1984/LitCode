@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stack>
+#include <vector>
 
 class RecentCounter {
 public:

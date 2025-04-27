@@ -1,55 +1,70 @@
 #include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+
+        int write = 0;
+        int read = 0;
+
+        int counter = 0;
+
+        while (read < chars.size() - 1) {
+            if (chars[read] == chars[read+1]){
+                ++counter;
+                ++read;
+            } else if (counter != 0) {
+                ++counter;
+                chars[write++] = chars[read];
+
+                string i = to_string(counter);
+                for (char j : i) {
+                    chars[write++] = j;
+                }
+                counter = 0;
+                ++read;
+
+            } else {
+                chars[write++] = chars[read];
 
 
-// using namespace std;
-//
-// class Solution {
-// public:
-//     int compress(vector<char>& chars) {
-//
-//         auto l = chars.begin();
-//         auto r = l;
-//
-//         int c = 0;
-//
-//         while (r != chars.end()) {
-//             if (*l == *r){
-//                 ++c;
-//                 ++r;
-//             } else if (c != 1) {
-//                 chars[l - chars.begin()] = *l;
-//                 auto i = to_string(c);
-//                 for (char j : i) {
-//                     chars[l - chars.begin()+1] = j;
-//                     ++l;
-//                 }
-//                 chars.erase(l+1,r);
-//
-//                 l = r-1;
-//                 r = l;
-//                 c = 0;
-//
-//             } else if (c == 1) {
-//                 ++l;
-//                 r = l;
-//                 c = 0;
-//             }
-//         }
-//
-//         if  (c != 1) {
-//             chars[l - chars.begin()] = *l;
-//             auto i = to_string(c);
-//             for (auto j : i) {
-//                 chars[l - chars.begin()+1] = j;
-//                 ++l;
-//
-//             }
-//             chars.erase(l+1,r);
-//         }
-//         return chars.size();
-//
-//         }
-// };
+                counter = 0;
+                ++read;
+            }
+        }
+
+        if (counter != 0) {
+            chars[write++] = chars[read];
+            ++counter;
+
+            string i = to_string(counter);
+            for (char j : i) {
+                chars[write++] = j;
+
+            }
+            ++read;
+
+        } else {
+            chars[write++] = chars[read];
+
+
+            ++read;
+        }
+
+        if (write < chars.size()) {
+            chars.erase(chars.begin() + write, chars.end());
+        }
+
+        return chars.size();
+
+        }
+};
+
+
+
 
 
 
